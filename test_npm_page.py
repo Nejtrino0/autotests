@@ -2,6 +2,8 @@ import sys
 
 import pytest
 
+from time import sleep
+
 from base.npm_page import NPMPage
 
 
@@ -13,10 +15,11 @@ from base.npm_page import NPMPage
 class TestNPMPage:
     # @pytest.mark.skip
     def test_search_positive(self, page, search):
-        page.fill_search_input(search[0])
+        page.fill_search_input(search)
+        sleep(2)
         page.click_search_button()
-        assert page.get_result_list(search[0]), \
-            f'search for "{search[0]}" not gave any results'
+        assert page.get_result_list(search), \
+            f'search for "{search}" not gave any results'
 
     # @pytest.mark.skipif(sys.platform == "win32", reason="does not run on windows")
     # def test_search_negative(self, page, search):
