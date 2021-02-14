@@ -6,8 +6,9 @@ from base.npm_page import NPMPage
 
 
 @pytest.mark.npm
-@pytest.mark.parametrize('search', ['react', 'vue'
-])
+@pytest.mark.parametrize('search', ['react', 'vue'])
+# @pytest.mark.parametrize('search', [('react',), ('vue,')])
+
 @pytest.mark.parametrize('page', [NPMPage], indirect=['page', ])
 class TestNPMPage:
     # @pytest.mark.skip
